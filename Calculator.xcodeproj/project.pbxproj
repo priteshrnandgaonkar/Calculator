@@ -15,6 +15,8 @@
 		CA67D9EB1CE49B5E00E71B3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA67D9E91CE49B5E00E71B3B /* LaunchScreen.storyboard */; };
 		CA67D9F61CE49B5E00E71B3B /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67D9F51CE49B5E00E71B3B /* CalculatorTests.m */; };
 		CA67DA011CE49B5E00E71B3B /* CalculatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA001CE49B5E00E71B3B /* CalculatorUITests.m */; };
+		CA67DA141CE4A70400E71B3B /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA131CE4A70400E71B3B /* CustomButton.m */; };
+		CA67DA181CE4E25200E71B3B /* NSString+ReversePolish.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		CA67D9FC1CE49B5E00E71B3B /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA67DA001CE49B5E00E71B3B /* CalculatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorUITests.m; sourceTree = "<group>"; };
 		CA67DA021CE49B5E00E71B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA67DA121CE4A70400E71B3B /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		CA67DA131CE4A70400E71B3B /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		CA67DA161CE4E25200E71B3B /* NSString+ReversePolish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ReversePolish.h"; sourceTree = "<group>"; };
+		CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReversePolish.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 		CA67D9DA1CE49B5E00E71B3B /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				CA67DA151CE4E22A00E71B3B /* Models */,
+				CA67DA0E1CE4A55500E71B3B /* Views */,
 				CA67D9DE1CE49B5E00E71B3B /* AppDelegate.h */,
 				CA67D9DF1CE49B5E00E71B3B /* AppDelegate.m */,
 				CA67D9E11CE49B5E00E71B3B /* ViewController.h */,
@@ -138,6 +146,24 @@
 				CA67DA021CE49B5E00E71B3B /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		CA67DA0E1CE4A55500E71B3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA67DA121CE4A70400E71B3B /* CustomButton.h */,
+				CA67DA131CE4A70400E71B3B /* CustomButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CA67DA151CE4E22A00E71B3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA67DA161CE4E25200E71B3B /* NSString+ReversePolish.h */,
+				CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA67DA141CE4A70400E71B3B /* CustomButton.m in Sources */,
 				CA67D9E31CE49B5E00E71B3B /* ViewController.m in Sources */,
+				CA67DA181CE4E25200E71B3B /* NSString+ReversePolish.m in Sources */,
 				CA67D9E01CE49B5E00E71B3B /* AppDelegate.m in Sources */,
 				CA67D9DD1CE49B5E00E71B3B /* main.m in Sources */,
 			);
@@ -496,6 +524,7 @@
 				CA67DA071CE49B5E00E71B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA67DA081CE49B5E00E71B3B /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +533,7 @@
 				CA67DA0A1CE49B5E00E71B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA67DA0B1CE49B5E00E71B3B /* Build configuration list for PBXNativeTarget "CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +542,7 @@
 				CA67DA0D1CE49B5E00E71B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
