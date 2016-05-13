@@ -18,7 +18,6 @@
 - (void)prepareForInterfaceBuilder {
     self.layer.borderColor = self.borderColor.CGColor;
     self.layer.borderWidth = self.borderWidth;
-
 }
 
 @end

@@ -20,6 +20,7 @@
 @end
 
 static NSString * const kDefaultDisplay = @"0";
+static NSString * const kAvailableOperators = @"^*/%+-";
 
 @implementation ViewController
 
@@ -43,7 +44,8 @@ static NSString * const kDefaultDisplay = @"0";
     
     NSString *updatedString = sender.value;
     
-    if((![self.displayString isEqualToString:kDefaultDisplay] && !self.isEqualToTapped) || [@"^*/%+-" containsString:sender.value]) {
+    if((![self.displayString isEqualToString:kDefaultDisplay] && !self.isEqualToTapped) || [@"^*/%+-." containsString:sender.value]) {
+        
         NSMutableString *mutDisplayString = self.displayString.mutableCopy;
         updatedString = [mutDisplayString stringByAppendingString:sender.value];
     }
@@ -62,12 +64,11 @@ static NSString * const kDefaultDisplay = @"0";
 - (IBAction)deleteAllCharacters:(CustomButton *)sender {
     self.displayString = kDefaultDisplay;
 }
+
 - (IBAction)EqualToTapped:(id)sender {
     
     self.isEqualToTapped = YES;
-    self.displayString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:self.displayString];
-
-
+    self.displayString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:kAvailableOperators evalExpression:self.displayString];
 }
 
 @end

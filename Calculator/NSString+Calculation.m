@@ -8,6 +8,7 @@
 
 #import "NSString+Calculation.h"
 #import <math.h>
+
 @implementation NSString (Calculation)
 + (CGFloat)evaluateleftOperand:(CGFloat)left rightOperand:(CGFloat)right operator:(NSString *)operation {
     CGFloat result = 0;
@@ -57,6 +58,7 @@
 }
 
 + (NSString *)evaluateExpressionWithOperatorPrecedenceArray:(NSArray<NSString *> *)operatorArray availableOperators:(NSString *)operator evalExpression:(NSString *)evalExpr{
+    
     __block NSString *evaluationString = evalExpr;
     [operatorArray enumerateObjectsUsingBlock:^(NSString * _Nonnull operators, NSUInteger idx, BOOL * _Nonnull stop) {
 
@@ -71,6 +73,7 @@
             if([newEvaluationString isEqualToString:evaluationString] && operatorArray.count > 1 && [operatorString isEqualToString:@"-"]) {
                 
                 NSArray<NSString *> *operatorArrayOtherThanNegative = [NSString getOperatorArrayFromString:newEvaluationString opertor:@"+/^*%"];
+                
                 if(operatorArrayOtherThanNegative.count >= 1) {
                     NSUInteger length = evaluationString.length;
                     NSRange range = NSMakeRange(0, length);
@@ -121,7 +124,8 @@
         return characters[0];
     }
     
-    NSString *leftString = ((NSString*)([characters[0] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:operator]].lastObject));
+    NSString *leftString = ((NSString *)([characters[0] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:operator]].lastObject));
+    
     if(characters[0].length >= 1 && [characters[0] characterAtIndex:0] == '-' && characters[0].length == 1 + leftString.length) {
         leftString = characters[0];
     }
