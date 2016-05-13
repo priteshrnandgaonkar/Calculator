@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSString+ReversePolish.h"
 
 @interface CalculatorTests : XCTestCase
 
@@ -24,16 +25,54 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testAddition {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *addedString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"3+6"];
+    XCTAssert([addedString isEqualToString:@"9"]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testSubtraction {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *subtractedString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"3-6"];
+    XCTAssert([subtractedString isEqualToString:@"-3"]);
 }
+
+- (void)testMultiplication {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *multipliedString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"3*6"];
+    XCTAssert([multipliedString isEqualToString:@"18"]);
+}
+
+- (void)testDivision {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *divisionString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"6/3"];
+    XCTAssert([divisionString isEqualToString:@"2"]);
+}
+
+- (void)testModulo {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *moduloString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"5%3"];
+    XCTAssert([moduloString isEqualToString:@"2"]);
+}
+
+- (void)testPower {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *powerString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"2^3"];
+    XCTAssert([powerString isEqualToString:@"8"]);
+}
+
+- (void)testExpression {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSString *expressionString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:@"730-2^6-1024/2^2^2+2*10%3"];
+    XCTAssert([expressionString isEqualToString:@"604"]);
+}
+
 
 @end

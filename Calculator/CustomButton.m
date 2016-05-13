@@ -21,15 +21,4 @@
 
 }
 
-
-//- (void)drawRect:(CGRect)rect {
-////    CGContextRef context = UIGraphicsGetCurrentContext();
-////    CGRect myFrame = self.bounds;
-////    CGContextSetLineWidth(context, _borderWidth);
-////    [_borderColor set];
-////    UIRectFrame(myFrame);
-//    self.layer.borderColor = self.borderColor.CGColor;
-//    self.layer.borderWidth = self.borderWidth;
-//}
-
 @end

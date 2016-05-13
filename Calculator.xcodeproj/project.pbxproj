@@ -107,12 +107,11 @@
 		CA67D9DA1CE49B5E00E71B3B /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				CA67DA151CE4E22A00E71B3B /* Models */,
+				CA67DA1C1CE5DA7A00E71B3B /* ViewControllers */,
+				CA67DA151CE4E22A00E71B3B /* Categories */,
 				CA67DA0E1CE4A55500E71B3B /* Views */,
 				CA67D9DE1CE49B5E00E71B3B /* AppDelegate.h */,
 				CA67D9DF1CE49B5E00E71B3B /* AppDelegate.m */,
-				CA67D9E11CE49B5E00E71B3B /* ViewController.h */,
-				CA67D9E21CE49B5E00E71B3B /* ViewController.m */,
 				CA67D9E41CE49B5E00E71B3B /* Main.storyboard */,
 				CA67D9E71CE49B5E00E71B3B /* Assets.xcassets */,
 				CA67D9E91CE49B5E00E71B3B /* LaunchScreen.storyboard */,
@@ -157,13 +156,22 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		CA67DA151CE4E22A00E71B3B /* Models */ = {
+		CA67DA151CE4E22A00E71B3B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				CA67DA161CE4E25200E71B3B /* NSString+ReversePolish.h */,
 				CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */,
 			);
-			name = Models;
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		CA67DA1C1CE5DA7A00E71B3B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA67D9E11CE49B5E00E71B3B /* ViewController.h */,
+				CA67D9E21CE49B5E00E71B3B /* ViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
