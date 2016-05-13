@@ -33,30 +33,27 @@
 }
 
 + (NSString *)getFirstOperatorFromString:(NSString *)str operator:(NSString *)operator {
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:operator];
-    
-    NSArray<NSString *> *operatorArray = [str componentsSeparatedByCharactersInSet:set.invertedSet];
-    NSMutableArray<NSString *> *mutOperatorArray = operatorArray.mutableCopy;
-    [mutOperatorArray removeObject:@""];
-    if(mutOperatorArray.count <= 0){
+   
+    NSArray<NSString *> *operatorArray = [NSString getOperatorArrayFromString:str opertor:operator];
+    if(operatorArray.count <= 0) {
         return @"";
     }
-    
+
     NSUInteger length = str.length;
     NSRange range = NSMakeRange(0, length);
     while(range.location != NSNotFound)
     {
-        range = [str rangeOfString: mutOperatorArray.firstObject options:0 range:range];
+        range = [str rangeOfString: operatorArray.firstObject options:0 range:range];
         if(range.location != NSNotFound)
         {
             break;
         }
     }
-    if([mutOperatorArray.firstObject isEqualToString:@"-"] && range.location == 0) {
+    if([operatorArray.firstObject isEqualToString:@"-"] && range.location == 0) {
         
-        return mutOperatorArray.count > 1? mutOperatorArray[1] : mutOperatorArray.firstObject;
+        return operatorArray.count > 1? operatorArray[1] : operatorArray.firstObject;
     }
-    return mutOperatorArray.firstObject;
+    return operatorArray.firstObject;
 }
 
 + (NSString *)evaluateExpressionWithOperatorPrecedenceArray:(NSArray<NSString *> *)operatorArray availableOperators:(NSString *)operator evalExpression:(NSString *)evalExpr{
@@ -65,28 +62,21 @@
 
         NSString *operatorString = [NSString getFirstOperatorFromString:evaluationString operator:operators];
         BOOL loopCondition = YES;
-        //peratorString.length > 0
         while(loopCondition) {
-           // evaluationString
-            NSLog(@"before trim operator string, %@", operatorString);
-            NSString *newEvaluationString = [NSString trimExpression:evaluationString forOperatorString:operatorString withAllOperators:operator];
-            NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:operator];
-            NSArray<NSString *> *operatorArray = [newEvaluationString componentsSeparatedByCharactersInSet:set.invertedSet];
-            NSMutableArray<NSString *> *mutOperatorArray = operatorArray.mutableCopy;
-            [mutOperatorArray removeObject:@""];
             
-            if([newEvaluationString isEqualToString:evaluationString] && mutOperatorArray.count > 1 && [operatorString isEqualToString:@"-"]) {
-                NSCharacterSet *set2 = [NSCharacterSet characterSetWithCharactersInString:@"+/^*%"];
+            NSString *newEvaluationString = [NSString trimExpression:evaluationString forOperatorString:operatorString withAllOperators:operator];
+            
+            NSArray<NSString *> *operatorArray = [NSString getOperatorArrayFromString:newEvaluationString opertor:operator];
+            
+            if([newEvaluationString isEqualToString:evaluationString] && operatorArray.count > 1 && [operatorString isEqualToString:@"-"]) {
                 
-                NSArray<NSString *> *operatorArray2 = [evaluationString componentsSeparatedByCharactersInSet:set2.invertedSet];
-                NSMutableArray<NSString *> *mutOperatorArray2 = operatorArray2.mutableCopy;
-                [mutOperatorArray2 removeObject:@""];
-                if(mutOperatorArray2.count >= 1) {
+                NSArray<NSString *> *operatorArrayOtherThanNegative = [NSString getOperatorArrayFromString:newEvaluationString opertor:@"+/^*%"];
+                if(operatorArrayOtherThanNegative.count >= 1) {
                     NSUInteger length = evaluationString.length;
                     NSRange range = NSMakeRange(0, length);
                     while(range.location != NSNotFound)
                     {
-                        range = [evaluationString rangeOfString: mutOperatorArray2.firstObject options:0 range:range];
+                        range = [evaluationString rangeOfString: operatorArrayOtherThanNegative.firstObject options:0 range:range];
                         if(range.location != NSNotFound)
                         {
                             range = NSMakeRange(range.location, length - range.location);
@@ -103,9 +93,7 @@
                 }
                 else {
                     newEvaluationString = [NSString trimNegativeExpressionString:newEvaluationString];
-
                 }
-                NSLog(@"newEvaluationString ,%@", newEvaluationString);
             }
             
             if([newEvaluationString isEqualToString:evaluationString] || [newEvaluationString containsString:@"NAN"]) {
@@ -114,7 +102,6 @@
             }
             evaluationString = newEvaluationString;
             operatorString = [NSString getFirstOperatorFromString:evaluationString operator:operators];
-            NSLog(@"after trim operator string, %@", operatorString);
 
         }
         
@@ -167,8 +154,15 @@
     NSString *newEvaluationString = [mutUpdatedEvalExpression stringByReplacingCharactersInRange:range withString:interimResultString];
     NSLog(@"Evaluation String, %@", newEvaluationString);
 
-    //[NSString trimExpression:newEvaluationString forOperatorString:operatorString withAllOperators:operator];
     return newEvaluationString;
+}
+
++ (NSArray<NSString *> *)getOperatorArrayFromString:(NSString *)str opertor:(NSString *)operator {
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:operator];
+    NSArray<NSString *> *operatorArray = [str componentsSeparatedByCharactersInSet:set.invertedSet];
+    NSMutableArray<NSString *> *mutOperatorArray = operatorArray.mutableCopy;
+    [mutOperatorArray removeObject:@""];
+    return [NSArray arrayWithArray:mutOperatorArray];
 }
 
 + (NSString *)trimNegativeExpressionString:(NSString *)str {
