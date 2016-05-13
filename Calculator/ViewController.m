@@ -43,7 +43,7 @@ static NSString * const kDefaultDisplay = @"0";
     
     NSString *updatedString = sender.value;
     
-    if(![self.displayString isEqualToString:kDefaultDisplay] && !self.isEqualToTapped) {
+    if((![self.displayString isEqualToString:kDefaultDisplay] && !self.isEqualToTapped) || [@"^*/%+-" containsString:sender.value]) {
         NSMutableString *mutDisplayString = self.displayString.mutableCopy;
         updatedString = [mutDisplayString stringByAppendingString:sender.value];
     }
@@ -64,11 +64,8 @@ static NSString * const kDefaultDisplay = @"0";
 }
 - (IBAction)EqualToTapped:(id)sender {
     
-//    NSString *test=@"26-6-5+8.4/2+9.3^2";
-//    CGFloat result = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:test];
-//    NSLog(@"temp=%f", result);
     self.isEqualToTapped = YES;
-    self.displayString = [NSString stringWithFormat:@"%0.6f", [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:self.displayString]];
+    self.displayString = [NSString evaluateExpressionWithOperatorPrecedenceArray:@[@"^", @"*/%", @"+-"] availableOperators:@"^*/%+-" evalExpression:self.displayString];
 
 
 }
