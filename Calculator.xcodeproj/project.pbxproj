@@ -16,7 +16,7 @@
 		CA67D9F61CE49B5E00E71B3B /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67D9F51CE49B5E00E71B3B /* CalculatorTests.m */; };
 		CA67DA011CE49B5E00E71B3B /* CalculatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA001CE49B5E00E71B3B /* CalculatorUITests.m */; };
 		CA67DA141CE4A70400E71B3B /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA131CE4A70400E71B3B /* CustomButton.m */; };
-		CA67DA181CE4E25200E71B3B /* NSString+ReversePolish.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */; };
+		CA67DA181CE4E25200E71B3B /* NSString+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA67DA171CE4E25200E71B3B /* NSString+Calculation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		CA67DA021CE49B5E00E71B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA67DA121CE4A70400E71B3B /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		CA67DA131CE4A70400E71B3B /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
-		CA67DA161CE4E25200E71B3B /* NSString+ReversePolish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ReversePolish.h"; sourceTree = "<group>"; };
-		CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReversePolish.m"; sourceTree = "<group>"; };
+		CA67DA161CE4E25200E71B3B /* NSString+Calculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Calculation.h"; sourceTree = "<group>"; };
+		CA67DA171CE4E25200E71B3B /* NSString+Calculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Calculation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +159,8 @@
 		CA67DA151CE4E22A00E71B3B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				CA67DA161CE4E25200E71B3B /* NSString+ReversePolish.h */,
-				CA67DA171CE4E25200E71B3B /* NSString+ReversePolish.m */,
+				CA67DA161CE4E25200E71B3B /* NSString+Calculation.h */,
+				CA67DA171CE4E25200E71B3B /* NSString+Calculation.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 			files = (
 				CA67DA141CE4A70400E71B3B /* CustomButton.m in Sources */,
 				CA67D9E31CE49B5E00E71B3B /* ViewController.m in Sources */,
-				CA67DA181CE4E25200E71B3B /* NSString+ReversePolish.m in Sources */,
+				CA67DA181CE4E25200E71B3B /* NSString+Calculation.m in Sources */,
 				CA67D9E01CE49B5E00E71B3B /* AppDelegate.m in Sources */,
 				CA67D9DD1CE49B5E00E71B3B /* main.m in Sources */,
 			);

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NSString+ReversePolish.h"
+#import "NSString+Calculation.h"
 
 @interface CalculatorTests : XCTestCase
 

@@ -1,14 +1,14 @@
 //
-//  NSString+ReversePolish.m
+//  NSString+Calculation.m
 //  Calculator
 //
 //  Created by Pritesh Nandgaonkar on 12/05/16.
 //  Copyright © 2016 Pritesh Nandgaonkar. All rights reserved.
 //
 
-#import "NSString+ReversePolish.h"
+#import "NSString+Calculation.h"
 #import <math.h>
-@implementation NSString (ReversePolish)
+@implementation NSString (Calculation)
 + (CGFloat)evaluateleftOperand:(CGFloat)left rightOperand:(CGFloat)right operator:(NSString *)operation {
     CGFloat result = 0;
     if([operation isEqualToString:@"+"]) {
